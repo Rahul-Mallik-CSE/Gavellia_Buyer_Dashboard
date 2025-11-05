@@ -2,8 +2,8 @@
 
 import React from "react";
 
-const MyBids = () => {
+const MyBidsPage = () => {
   return <div>MyBids</div>;
 };
 
-export default MyBids;
+export default MyBidsPage;
