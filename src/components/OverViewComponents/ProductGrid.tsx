@@ -62,9 +62,9 @@ const products = [
 
 export default function ProductGrid() {
   return (
-    <section className="mt-12">
+    <section className="">
       <div className="flex items-center justify-between mb-8">
-        <h2 className="text-3xl font-semibold text-foreground">
+        <h2 className="text-2xl lg:text-4xl font-semibold text-foreground">
           Inspired by your Bids
         </h2>
         <a

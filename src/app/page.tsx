@@ -2,6 +2,8 @@
 
 import ProductGrid from "@/components/OverViewComponents/ProductGrid";
 import StatsCard from "@/components/OverViewComponents/StatsCard";
+import LiveAuction from "@/components/OverViewComponents/LiveAuction";
+import Activity from "@/components/OverViewComponents/Activity";
 
 export default function Home() {
   return (
@@ -10,6 +12,12 @@ export default function Home() {
         <StatsCard />
 
         <ProductGrid />
+
+        {/* Live Auction and Recent Activity Section */}
+        <div className="w-full grid grid-cols-1 lg:grid-cols-2 gap-6 ">
+          <LiveAuction />
+          <Activity />
+        </div>
       </div>
     </div>
   );
