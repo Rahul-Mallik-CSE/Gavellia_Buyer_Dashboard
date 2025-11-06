@@ -1,5 +1,9 @@
 /** @format */
 
+"use client";
+
+import Link from "next/link";
+import { usePathname } from "next/navigation";
 import {
   Bell,
   Gavel,
@@ -17,10 +21,11 @@ import { PiReceiptThin, PiUserCircleGear } from "react-icons/pi";
 import { TiMessages } from "react-icons/ti";
 
 export default function NavBar() {
+  const pathname = usePathname();
   return (
     <header className=" sticky top-0 z-50">
-      <div className="max-w-7xl bg-background rounded-lg mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex items-center justify-between h-16">
+      <div className="max-w-[2000px] bg-background rounded-lg mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="flex items-center justify-between h-12">
           <div className="flex items-center">
             <h1 className="hidden lg:block text-2xl font-semibold text-foreground">
               Gavellia
@@ -29,23 +34,33 @@ export default function NavBar() {
 
           <nav className="hidden md:flex items-center gap-1">
             {[
-              { name: "Overview", icon: AiOutlineHome },
-              { name: "My Bids", icon: HiOutlineHandRaised },
-              { name: "Watchlist", icon: GiSelfLove },
-              { name: "Purchases", icon: PiReceiptThin },
-              { name: "Messages", icon: TiMessages },
-              { name: "Profile & Settings", icon: PiUserCircleGear },
-            ].map((item) => (
-              <Button
-                key={item.name}
-                variant="ghost"
-                size="sm"
-                className="text-foreground hover:bg-muted flex items-center gap-2"
-              >
-                <item.icon className="w-4 h-4" />
-                {item.name}
-              </Button>
-            ))}
+              { name: "Overview", icon: AiOutlineHome, href: "/" },
+              { name: "My Bids", icon: HiOutlineHandRaised, href: "/my-bids" },
+              { name: "Watchlist", icon: GiSelfLove, href: "/watch-list" },
+              { name: "Purchases", icon: PiReceiptThin, href: "/purchases" },
+              { name: "Messages", icon: TiMessages, href: "/messages" },
+              {
+                name: "Profile & Settings",
+                icon: PiUserCircleGear,
+                href: "/profile-settings",
+              },
+            ].map((item) => {
+              const isActive = pathname === item.href;
+              return (
+                <Link
+                  key={item.name}
+                  href={item.href}
+                  className={`text-sm flex items-center gap-0.5 px-1.5 py-1 rounded-xs ${
+                    isActive
+                      ? "bg-gray-100 text-[#6C63FF]"
+                      : "text-black hover:bg-gray-50 hover:text-[#6C63FF]"
+                  }`}
+                >
+                  <item.icon className="w-3 h-3" />
+                  {item.name}
+                </Link>
+              );
+            })}
           </nav>
 
           <div className="flex items-center gap-3">
