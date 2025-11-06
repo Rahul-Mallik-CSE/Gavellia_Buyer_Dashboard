@@ -30,9 +30,9 @@ export default function RootLayout({
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
-        <div className="min-h-screen bg-[#F8F8FF] text-foreground py-2">
+        <div className="min-h-screen bg-[#F8F8FF] text-foreground py-2 px-4 md:px-6 lg:px-8">
           <NavBar />
-          {children}
+          <div className="px-2 py-4">{children}</div>
         </div>
       </body>
     </html>
