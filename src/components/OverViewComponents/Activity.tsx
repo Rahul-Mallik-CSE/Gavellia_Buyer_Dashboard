@@ -52,7 +52,7 @@ export default function Activity() {
           <div key={activity.id} className="flex items-start gap-3">
             {/* Icon */}
             <div
-              className={`w-10 h-10 rounded-lg ${activity.iconBg} flex items-center justify-center flex-shrink-0`}
+              className={`w-10 h-10 rounded-lg ${activity.iconBg} flex items-center justify-center shrink-0`}
             >
               <activity.icon className={`w-5 h-5 ${activity.iconColor}`} />
             </div>
